@@ -19,8 +19,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 from gallery import views
+from django.urls import path
+from gallery.templates.views import gallery_view, image_detail
 
 urlpatterns = [
+    path('gallery/', gallery_view, name='gallery_view'),
+    path('image/<int:image_id>/', image_detail, name='image_detail'),
     path('admin/', admin.site.urls),
     path('', views.gallery_view, name='main'),
     path('image/<int:pk>/', views.image_detail, name='image_detail'),
