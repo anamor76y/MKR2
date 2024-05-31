@@ -1,0 +1,19 @@
+<!-- gallery.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery</title>
+</head>
+<body>
+    <h1>Gallery</h1>
+    {% for category, images in image_categories.items %}
+    <h2>{{ category }}</h2>
+    <ul>
+        {% for image in images %}
+        <li><a href="{% url 'image_detail' image.id %}">{{ image.title }}</a></li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+</body>
+</html>
